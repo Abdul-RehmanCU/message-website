@@ -1,0 +1,4 @@
+Optimize for Mobile
+Add More Info
+Add smoother scrolling
+host it on a server

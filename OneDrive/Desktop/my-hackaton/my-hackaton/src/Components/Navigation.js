@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 
 
-
-
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -13,9 +11,9 @@ export default function Navbar() {
 
     const handleScroll = () => {
       if (window.pageYOffset > lastScrollY) {
-        setIsScrolled(true); // Hide navbar
+        setIsScrolled(true); 
       } else {
-        setIsScrolled(false); // Show navbar
+        setIsScrolled(false); 
       }
       lastScrollY = window.pageYOffset;
     };
@@ -25,7 +23,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    // Check local storage for the theme preference
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
       setDarkMode(true);
@@ -57,14 +54,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-        <div className="text-xl font-bold text-blue-500 dark:text-white">
-          My Portfolio
+        <div className="text-xl font-bold text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out">
+         <a href="#hero"> Abdul Rehman</a>
         </div>
         <ul className="flex space-x-4">
           <li>
             <a
               href="#hero"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
+              className="text-gray-700 font-bold dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
             >
               Home
             </a>
@@ -72,7 +69,7 @@ export default function Navbar() {
           <li>
             <a
               href="#about"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
+              className="text-gray-700 font-bold dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
             >
               About
             </a>
@@ -80,7 +77,7 @@ export default function Navbar() {
           <li>
             <a
               href="#skills"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
+              className="text-gray-700 font-bold dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
             >
               Skills
             </a>
@@ -88,7 +85,7 @@ export default function Navbar() {
           <li>
             <a
               href="#projects"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
+              className="text-gray-700 font-bold dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
             >
               View My Work
             </a>
@@ -96,13 +93,14 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
+              className="text-gray-700 font-bold dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
             >
               Contact
             </a>
           </li>
         </ul>
-        {/* Dark Mode Toggle Button */}
+      
+      
         <button
             onClick={toggleDarkMode}
             className="ml-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 py-2 px-4 rounded-full transition-colors duration-300 hover:bg-gray-400 dark:hover:bg-gray-900 flex items-center justify-center"
@@ -110,7 +108,7 @@ export default function Navbar() {
             {darkMode ? (
                 <SunIcon className="w-6 h-6 text-yellow-500 hover:animate-spin" />
             ) : (
-                <MoonIcon className="w-6 h-6 text-blue-500 hover:animate-spin" />
+                <MoonIcon className="w-6 h-6 text-blue-500 hover:animate-pulse" />
             )}
         </button>
 
