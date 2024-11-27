@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import pythonImage from './images/python.png';
+import javaImage from './images/java.png';
+import CImage from './images/C.png';
+import reactImage from './images/react.png'
+import TailwindImage from './images/tailwind.png'
+import NodeJSImage from './images/nodeJS.png'
+import ExpressJSImage from './images/express.png'
+
+
+
 
 export default function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState(null); // Track hovered skill
@@ -17,16 +27,21 @@ export default function Skills() {
       emoji: "💻",
       details: [
         {name: "JavaScript", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpuYdLEzBvwemix8pwsncUkLLOQqnByncadg&s"  }, 
-        {name: "Python", image: ""  },
-        {name: "JavaScript", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpuYdLEzBvwemix8pwsncUkLLOQqnByncadg&s"  },
-        {name: "JavaScript", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpuYdLEzBvwemix8pwsncUkLLOQqnByncadg&s"  },
+        {name: "Python", image: pythonImage },
+        {name: "Java", image: javaImage  },
+        {name: "JavaScript", image: CImage  },
       ]
     },
     {
       id: 2,
       title: "Framework & Libraries",
       emoji: "📚",
-      details: ["React", "Node.js", "Tailwind CSS", "Express"],
+      details: [
+        {name: "React", image : reactImage},
+        {name: "NodeJS", image : NodeJSImage},
+        {name: "TailWindCSS", image : TailwindImage},
+        {name: "ExpressJS", image : ExpressJSImage},
+          ],
     },
     {
       id: 3,
@@ -63,14 +78,14 @@ export default function Skills() {
             {/* Pop-up Box */}
             {hoveredSkill === skill.id && (
               <div
-                className="absolute top-20 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 w-64 text-gray-700 dark:text-white z-10"
+                className="absolute top-20 bg-white dark:bg-gray-800 shadow-xl rounded-lg p-4 w-64 text-gray-700 dark:text-white z-10 animate-fade duration-300"
                 style={{
-                  transform: "translateY(-10px)",
-                  transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out",
+                  transform: "translateY(-2px)",
+                  transition: "opacity 0.3s ease-in-out, transform 0.7s ease-in-out",
                 }}
               >
                 <h3 className="text-lg font-bold mb-2">{skill.title}</h3>
-                <ul className="grid grid-cols-2 gap-2">
+                <ul className="grid grid-cols-2 gap-4">
                   {skill.details.map((detail, index) => (
                     <li
                       key={index}
@@ -79,7 +94,7 @@ export default function Skills() {
                       <img
                         src={detail.image}
                         alt={detail.name}
-                        className="w-10 h-10"
+                        className="w-15 h-10"
                       />
                       <span className="mt-2 text-sm">{detail.name}</span>
                     </li>
