@@ -13,9 +13,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="h-screen bg-gray-100 dark:bg-gray-600 dark:text-white flex items-center justify-center animate-fade transition duration-200"
+      className="h-screen bg-gray-100 dark:bg-gray-600 dark:text-white flex items-center justify-center animate-fade transition duration-200 px-4 sm:px-6"
     >
-      <div data-aos="fade-down" className="max-w-4xl text-center">
+      <div data-aos="fade-down" className="max-w-2xl w-full text-center">
         {/* About Me Content */}
         <h2 className="text-3xl font-bold">About Me</h2>
         <p className="mt-4 text-gray-700 dark:text-white">
@@ -29,7 +29,7 @@ export default function About() {
             e.preventDefault(); // Prevent default link behavior
             setIsModalOpen(true); // Open the modal
           }}
-          className="mt-6 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+          className="mt-8 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded"
         >
           View My Resume
         </a>

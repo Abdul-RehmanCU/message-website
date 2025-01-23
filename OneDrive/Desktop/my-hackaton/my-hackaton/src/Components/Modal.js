@@ -6,7 +6,7 @@ export default function Modal({ isOpen, onClose, pdfUrl }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       {/* Modal Content */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-11/12 max-w-4xl p-4 relative">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-11/12 max-w-4xl p-2 relative">
         {/* Close Button */}
         <button
           onClick={onClose}
