@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MoonIcon, SunIcon, MenuIcon, XIcon } from "@heroicons/react/solid";
 
-export default function Navbar() {
+export default function Navbar({ setIsDarkMode }) { 
   const [isScrolled, setIsScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,11 +10,7 @@ export default function Navbar() {
     let lastScrollY = window.pageYOffset;
 
     const handleScroll = () => {
-      if (window.pageYOffset > lastScrollY) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.pageYOffset > lastScrollY);
       lastScrollY = window.pageYOffset;
     };
 
@@ -27,11 +23,13 @@ export default function Navbar() {
     if (storedTheme === "dark") {
       setDarkMode(true);
       document.documentElement.classList.add("dark");
+      setIsDarkMode(true); 
     } else {
       setDarkMode(false);
       document.documentElement.classList.remove("dark");
+      setIsDarkMode(false); 
     }
-  }, []);
+  }, [setIsDarkMode]);
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
@@ -39,9 +37,11 @@ export default function Navbar() {
       if (newMode) {
         document.documentElement.classList.add("dark");
         localStorage.setItem("theme", "dark");
+        setIsDarkMode(true); 
       } else {
         document.documentElement.classList.remove("dark");
         localStorage.setItem("theme", "light");
+        setIsDarkMode(false); 
       }
       return newMode;
     });

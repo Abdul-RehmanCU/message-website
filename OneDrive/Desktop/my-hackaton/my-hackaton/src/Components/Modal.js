@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Modal({ isOpen, onClose, pdfUrl }) {
-  if (!isOpen) return null; // Don't render the modal if it isn't open.
+  if (!isOpen) return null; 
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">

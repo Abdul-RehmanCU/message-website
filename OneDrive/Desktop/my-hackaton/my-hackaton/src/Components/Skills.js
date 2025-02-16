@@ -12,19 +12,24 @@ import VScode from "./images/VSCode.png";
 import IntelliJ from "./images/IntelliJ.png";
 import Firebase from "./images/Firebase.png";
 import Github from "./images/Github.png";
+import TSImage from "./images/TS.png";
+import HTMLImage from "./images/HTML.png";
+import CSSImage from "./images/CSS.png";
+import FlaskImage from "./images/Flask.png";
+import NextJSImage from "./images/NextJS.png";
 
 export default function Skills() {
-  const [hoveredSkill, setHoveredSkill] = useState(null); // Track hovered skill
+  const [hoveredSkill, setHoveredSkill] = useState(null); 
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
 
-  const isMobile = window.innerWidth <= 768; // Check if user is on mobile
+  const isMobile = window.innerWidth <= 768; 
 
   const handleSkillClick = (id) => {
     if (isMobile) {
-      setHoveredSkill((prev) => (prev === id ? null : id)); // Toggle on mobile
+      setHoveredSkill((prev) => (prev === id ? null : id)); 
     }
   };
 
@@ -39,17 +44,22 @@ export default function Skills() {
         { name: "Python", image: pythonImage },
         { name: "Java", image: javaImage },
         { name: "C", image: CImage },
+        { name: "TypeScript", image: TSImage },
+        { name: "HTML", image: HTMLImage },
+        { name: "CSS", image: CSSImage },
       ],
     },
     {
       id: 2,
-      title: "Framework & Libraries",
+      title: "Frameworks & Libraries",
       emoji: "📚",
       details: [
         { name: "React", image: reactImage },
+        { name: "NextJS", image: NextJSImage },
         { name: "NodeJS", image: NodeJSImage },
-        { name: "TailWindCSS", image: TailwindImage },
+        { name: "TailwindCSS", image: TailwindImage },
         { name: "ExpressJS", image: ExpressJSImage },
+        { name: "Flask", image: FlaskImage },
       ],
     },
     {
@@ -68,26 +78,30 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-screen bg-white flex flex-col items-center justify-center dark:bg-gray-700 dark:text-white px-4 sm:px-6 md:px-8 animate-fade transition duration-200"
+      className="min-h-screen flex flex-col items-center justify-center dark:text-white px-4 sm:px-6 md:px-8 animate-fade transition duration-200"
     >
       <h2 data-aos="fade-down" className="text-2xl sm:text-3xl font-bold">
         Skills
       </h2>
+
+      {/* Skill Boxes Grid */}
       <div
         data-aos="fade-down"
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8 w-full"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6 w-full max-w-5xl"
       >
         {skills.map((skill) => (
           <div
             key={skill.id}
             className="relative flex flex-col items-center"
-            onMouseEnter={() => !isMobile && setHoveredSkill(skill.id)} // Desktop Hover
-            onMouseLeave={() => !isMobile && setHoveredSkill(null)} // Desktop Hover Out
-            onClick={() => handleSkillClick(skill.id)} // Mobile Click Toggle
+            onMouseEnter={() => !isMobile && setHoveredSkill(skill.id)}
+            onMouseLeave={() => !isMobile && setHoveredSkill(null)}
+            onClick={() => handleSkillClick(skill.id)}
           >
-            <div className="bg-white shadow-md rounded-lg p-4 dark:bg-gray-700 transition transform hover:scale-105">
-              <span className="text-purple-500 text-4xl sm:text-5xl">{skill.emoji}</span>
-              <p className="mt-2 text-gray-700 dark:text-white text-base sm:text-lg">
+            <div className="bg-white shadow-md rounded-lg p-3 dark:bg-gray-700 transition transform hover:scale-105">
+              <span className="text-purple-500 text-3xl sm:text-4xl">
+                {skill.emoji}
+              </span>
+              <p className="mt-1 text-gray-700 dark:text-white text-sm sm:text-base">
                 {skill.title}
               </p>
             </div>
@@ -95,23 +109,22 @@ export default function Skills() {
             {/* Pop-up Box */}
             {hoveredSkill === skill.id && (
               <div
-                className={`absolute top-20 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 shadow-xl rounded-lg p-6 ${
-                  isMobile ? "w-full px-6" : "w-64"
-                } text-gray-700 dark:text-white z-10 animate-fade duration-300`}
+                className={`absolute top-16 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 shadow-xl rounded-lg p-4 text-gray-700 dark:text-white z-10 animate-fade ${
+                  isMobile ? "w-full px-4" : "w-52"
+                }`}
               >
-                <h3 className="text-lg font-bold mb-2">{skill.title}</h3>
-                <ul className="grid grid-cols-2 gap-4">
+                <h3 className="text-sm sm:text-base font-bold mb-1">
+                  {skill.title}
+                </h3>
+                <ul className="grid grid-cols-2 gap-3">
                   {skill.details.map((detail, index) => (
-                    <li
-                      key={index}
-                      className="flex flex-col items-center justify-center"
-                    >
+                    <li key={index} className="flex flex-col items-center">
                       <img
                         src={detail.image}
                         alt={detail.name}
-                        className="w-12 h-10 md:w-19 md:h-12"
+                        className="w-10 h-8 md:w-12 md:h-12"
                       />
-                      <span className="mt-2 text-xs sm:text-sm md:text-base">
+                      <span className="mt-1 text-xs sm:text-sm">
                         {detail.name}
                       </span>
                     </li>

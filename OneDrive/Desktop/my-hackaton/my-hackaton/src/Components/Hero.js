@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import Particle from "./Particle";
+
 
 export default function Hero() {
   useEffect(() => {
@@ -11,14 +11,15 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="h-screen bg-cover bg-center flex items-center justify-center text-white dark:bg-gray-700 dark:text-white animate-fade transition duration-200"
+      className="relative h-screen flex items-center justify-center text-white dark:text-white transition duration-200"
     >
-    
+
+      {/* Hero Content - Centered */}
       <div
         data-aos="fade-down"
         data-aos-easing="ease-in-out"
         data-aos-delay="300"
-        className="text-center text-black dark:text-white"
+        className="relative z-10 text-center text-black dark:text-white"
       >
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
           Hello, I'm Abdul Rehman
