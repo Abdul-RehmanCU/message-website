@@ -12,18 +12,17 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Sending...");
+    setStatus("Sent");
 
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
+      const response = await fetch("https://website-ytgq.onrender.com/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+      
       const data = await response.json();
       if (data.success) {
-        setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
       } else {
         setStatus("Failed to send message.");
